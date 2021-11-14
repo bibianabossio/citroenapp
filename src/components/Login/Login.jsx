@@ -53,7 +53,7 @@ const Login = ({ setSesionActiva, sesionActiva }) => {
         );
         let resEnJson = await res.json();
         localStorage.setItem("sesion", JSON.stringify(resEnJson));
-        console.log(" Inicio sesion! :", resEnJson);
+        console.log("Inicio sesion! :", resEnJson);
         if (res.status === 401) {
           toast("Datos Incorrectos", {
             position: "top-left",

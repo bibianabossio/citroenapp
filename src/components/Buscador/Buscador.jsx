@@ -39,8 +39,7 @@ const Buscador = async (
         config
       );
       let resEnJson = await res.json();
-      console.log(" SE encontro esto:", resEnJson);
-      return resEnJson;
+            return resEnJson;
     } catch (error) {
       console.log(" hubo un error :( En busqueda :", error);
       return error;

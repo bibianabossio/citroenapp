@@ -10,7 +10,7 @@ const CrearAuto = () => {
 
   const crearAutomovil = async (event) => {
     event.preventDefault();
-    console.log("hice click", event.target);
+    
     let resYear = event.target.year.value ? event.target.year.value : "";
     let resName = event.target.name.value ? event.target.name.value : "";
     let resColor = event.target.color.value ? event.target.color.value : "";
@@ -39,8 +39,7 @@ const CrearAuto = () => {
       );
       let resEnJson = await res.json();
       if (res.status === 201) {
-        console.log(" SE CREO UN NUEVO AUTO :", resEnJson);
-        toast("Automóvil Registrado", {
+          toast("Automóvil Registrado", {
           position: "top-left",
           autoClose: 5000,
           hideProgressBar: false,

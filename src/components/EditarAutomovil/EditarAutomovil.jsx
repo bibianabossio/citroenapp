@@ -47,8 +47,7 @@ const EditarAutomovil = () => {
       );
       let resEnJson = await res.json();
       if (res.status === 200) {
-        console.log(" SE ACTUALIZO! :", resEnJson);
-        toast("Automóvil Actualizado", {
+          toast("Automóvil Actualizado", {
           position: "top-left",
           autoClose: 5000,
           hideProgressBar: false,

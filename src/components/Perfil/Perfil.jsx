@@ -110,7 +110,7 @@ const Perfil = () => {
         });
       }
     } catch (error) {
-      console.log(" hubo un error :( ", error);
+      console.log(" hubo un error ", error);
     } 
   };
 

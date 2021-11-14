@@ -34,17 +34,41 @@ const Auto = () => {
           opcionSeleccionada: e.target.value,
         });
   };
-
   const formSubmitSearch = async (e) => {
     e.preventDefault();
-    let resBusqueda = await Buscador(
-      search.opcionSeleccionada,
-      search.textoAbuscar,
-      "automoviles"
-    );
-    console.log(resBusqueda);
-    setObjeto(resBusqueda);
+
+    let resBusqueda
+    if(search.opcionSeleccionada==="year"){
+      console.log("selecciono anio",typeof(parseInt(search.textoAbuscar)));
+       resBusqueda = await Buscador(
+        search.opcionSeleccionada,
+        parseInt(search.textoAbuscar),
+        "automoviles"
+      ); 
+    }else{
+       resBusqueda = await Buscador(
+        search.opcionSeleccionada,
+        search.textoAbuscar,
+        "automoviles"
+      );    
+
+    }
+    if(resBusqueda.message){
+      toast(resBusqueda.message.year, {
+        position: "top-left",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progreso: undefined,
+      });
+    }else{
+
+      setObjeto(resBusqueda);
+    }
   };
+
 
   useEffect(async () => {
     try {

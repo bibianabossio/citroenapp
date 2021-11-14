@@ -53,7 +53,11 @@ function App() {
               )}
             </Route>
             <Route exact path="/singin">
-              <Registrarse />
+            {!sesionActiva ? (
+                <Registrarse/>
+              ) : (
+                <Redirect exact to="/" />
+              )}
             </Route>
             <Route exact path="/">
               {!sesionActiva ? (
@@ -62,6 +66,11 @@ function App() {
                 <Main setSesionActiva={setSesionActiva} />
               )}
             </Route>
+            <Route path="*">
+            <Redirect exact to="/login" />
+
+            </Route>
+
           </Switch>
         </SeleccionProvider>
      

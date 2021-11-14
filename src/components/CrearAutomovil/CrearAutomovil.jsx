@@ -74,7 +74,7 @@ const CrearAuto = () => {
             progreso: undefined,
           });
         }
-
+        else{
         if (resEnJson.message.year) {
           toast(resEnJson.message.year, {
             position: "top-left",
@@ -97,6 +97,7 @@ const CrearAuto = () => {
           });
         }
       }
+    }
     } catch (error) {
       console.log(" hubo un error :( EN LA ACTUALIZACION :", error);
     }

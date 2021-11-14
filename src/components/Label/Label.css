@@ -1,0 +1,14 @@
+ .label {
+    color:#fbfbfb;
+    font-size: 20px;
+    text-align: left;
+      
+    
+}
+.label::placeholder{
+    font-size: 20px;
+    color: rgb(112, 49, 19);
+    opacity: 1.2;
+}
+
+ 

@@ -1,0 +1,23 @@
+.registrarse-boton-iniciar-sesion{
+    width: -webkit-fill-available;
+    border: none;
+    outline: none;
+    color: white;
+    cursor: "pointer";
+    background: rgb(158, 6, 5);
+    font-size: 14px;
+    font-weight: bold;
+    margin: 10px
+;
+    padding: 13px
+;
+    border-radius: 10px
+;
+    margin-bottom: 30px
+;
+}
+
+.contenedor{
+    display: flex;
+    flex-direction: unset;
+}

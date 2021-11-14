@@ -1,0 +1,214 @@
+
+
+.login-container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background: rgb(32, 32, 32);
+}
+
+.list-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
+  position: sticky;
+  width: flex-end;
+  height: flex-end;
+  background: rgb(32, 32, 32);
+}
+.login-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 40px;
+  width: 80vw;
+  height: 80vh;
+  border: 4px solid rgb(158, 6, 5);
+  align-items:normal;
+  box-shadow: 2px 2px #fbfbfb;
+  padding: 20px;
+}
+
+.list-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  margin: auto;
+  position: flex;
+  width: flex;
+  height: flex-end;
+  border: 4px solid rgb(158, 6, 5);
+  align-items: center;
+  box-shadow: 2px 2px #fbfbfb;
+}
+.list {
+  color: #fbfbfb;
+  font-size: 20px;
+  text-align: center;
+  margin: 20px;
+  display: "flex";
+  justify-content: flex-end;
+}
+
+.submit-button-container {
+  flex-direction: row;
+  padding: 2px;
+}
+
+.submit-button {
+  border: none;
+  outline: none;
+  color: white ;
+  cursor: "pointer";
+  width: -webkit-fill-available;
+  background: rgb(158, 6, 5);
+  font-size: 14px;
+  font-weight: bold;
+  
+  margin: 10px;
+  padding: 13px;
+  margin-bottom: 23px;
+ 
+  border-radius: 10px;
+}
+
+
+/* aca esya el nuevo boton de crear cuenta en Login*/
+.crear-cuenta-login{
+  display: flex;
+  
+    flex-direction: column;
+}
+
+.submit-button-crear-cuenta{
+ 
+  border: none;
+  outline: none;
+  color: white;
+  cursor: "pointer";
+  
+  background: rgb(158, 6, 5);
+  font-size: 14px;
+  font-weight: bold;
+ 
+  justify-content: center;
+  width: 93px
+;
+  margin: auto;
+  float: center;
+  padding: 13px;
+ 
+  border-radius: 10px;
+}
+
+/* aca termina el nuevo boton de crear cuenta en Login*/
+.petit-submit-button {
+  border: none;
+  outline: none;
+  color: white;
+  cursor: "pointer";
+  align-items: center;
+  align-self: flex-end;
+  flex-direction: column;
+  background: rgb(87, 29, 3);
+  font-size: 10px;
+  font-weight: bold;
+  justify-content: "center";
+  margin: flex;
+  margin-top: flex;
+  padding: 5px;
+  width: 20%;
+  height: 20px;
+  border-radius: 15px;
+}
+
+.submit-button:hover {
+  opacity: 0.5;
+}
+
+.label-error {
+  width: fit-content;
+  height: fit-content;
+  box-sizing: border-box;
+  color: red;
+  padding: 6px;
+  margin-left: 10px;
+  font-size: 14px;
+  border-radius: 6px;
+  background: white;
+}
+.label-alert {
+  width: fit-content;
+  height: fit-content;
+  border-bottom: red;
+  color: red;
+  background: white;
+  font-size: 14px;
+  border-radius: 6px;
+  margin-bottom: 5 px;
+  padding: 5px;
+}
+.input-container {
+  width: 100%;
+  border-radius: 10px;
+  height: 30px;
+}
+
+.regular-style {
+  width: 100%;
+  height: 40px;
+  border-radius: 15px;
+  border: none;
+  box-sizing: border-box;
+  color:  rgb(32, 32, 32);
+  outline: none;
+  font-size: 14px;
+  border: none;
+  background: white;
+  align-items: center;
+  align-self: flex-end;
+  flex-direction: column;
+  margin: 5px;
+}
+.regular-style::placeholder {
+  font-size: 25px;
+  color: rgb(112, 49, 19);
+  opacity: 1.2;
+}
+.input-error {
+  color: red;
+  background: rgb(255, 255, 255);
+  width: 100%;
+  height: 35px;
+  border-radius: 25px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  outline: none;
+  font-size: 14px;
+}
+
+.input-error::placeholder {
+  font-size: 14px;
+  color: red;
+  opacity: 1.2;
+}
+
+.tabla-style {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 3px;
+}
+
+.contenedor-tabla {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding: 2px;
+}
+
+.form {
+  padding: auto;
+  margin-left: auto;
+  margin-right: auto;
+}

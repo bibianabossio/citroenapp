@@ -1,0 +1,20 @@
+.barraNavegacion{
+    display: flex;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+a{text-decoration: none;
+color:black}
+
+.MuiTypography-root:hover{
+    
+    height: 50px;
+    align-items: center;
+    border-radius: 5px;
+    background-color: #fad5c3;
+    display: flex;
+    justify-content: center;
+}

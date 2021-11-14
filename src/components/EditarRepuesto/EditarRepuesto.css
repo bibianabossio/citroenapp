@@ -1,0 +1,9 @@
+#formEditRep{
+    display: flex;
+    flex-direction: column;
+    
+}
+.formEditRepInput{
+    margin-top: 6px;
+    margin-bottom: 6px;
+}

@@ -10,7 +10,7 @@ const CrearAuto = () => {
 
   const crearAutomovil = async (event) => {
     event.preventDefault();
-    
+
     let resYear = event.target.year.value ? event.target.year.value : "";
     let resName = event.target.name.value ? event.target.name.value : "";
     let resColor = event.target.color.value ? event.target.color.value : "";
@@ -39,7 +39,7 @@ const CrearAuto = () => {
       );
       let resEnJson = await res.json();
       if (res.status === 201) {
-          toast("Automóvil Registrado", {
+        toast("Automóvil Registrado", {
           position: "top-left",
           autoClose: 5000,
           hideProgressBar: false,
@@ -65,6 +65,18 @@ const CrearAuto = () => {
       } else {
         if (resEnJson.message.color) {
           toast(resEnJson.message.color, {
+            position: "top-left",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progreso: undefined,
+          });
+        }
+
+        if (resEnJson.message.year) {
+          toast(resEnJson.message.year, {
             position: "top-left",
             autoClose: 5000,
             hideProgressBar: false,

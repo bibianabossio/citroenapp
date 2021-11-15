@@ -7,7 +7,7 @@ import Dolar from "../Dolar/Dolar";
 import { styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
-import Perfil from "../Perfil/Perfil";
+/* import Perfil from "../Perfil/Perfil"; */
 
 const Menu =()=> {
   
@@ -33,14 +33,14 @@ const Menu =()=> {
        }} value='dolar'>Dolar</button>
      </Item>
 
-     <Item>
+    {/*  <Item>
        <button  onClick={(e)=>{
          e.preventDefault()
          setseleccion2('perfil')
        }}  value='Perfil'>Perfil</button>
           
         </Item>
-     
+      */}
         <Item>
        <button  onClick={(e)=>{
          e.preventDefault()
@@ -61,7 +61,7 @@ const Menu =()=> {
         
 
         {Seleccion2==='dolar'?<Dolar/>:null}
-        {Seleccion2==='perfil'?<Perfil/>:null}
+        {/* {Seleccion2==='perfil'?<Perfil/>:null} */}
         {Seleccion2==='repuestos'?<ListadoRepuestos/>:null}
         {Seleccion2==='autos'?<ListadoAutomoviles/>:null}
         </Item>

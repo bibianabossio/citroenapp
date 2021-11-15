@@ -22,13 +22,11 @@ function App() {
       ? JSON.parse(localStorage.getItem("sesion")).token
       : tokenExpirado
   );
- 
 
   useEffect(() => {
     if (localStorage.getItem("activo") === "true") {
       if (!isExpired) {
         setSesionActiva(true);
-  
       } else {
         setSesionActiva(false);
       }
@@ -39,41 +37,33 @@ function App() {
 
   return (
     <Router>
-     
-        <SeleccionProvider setSesionActiva={setSesionActiva}>
-          <Switch>
-            <Route exact path="/login">
-              {!sesionActiva ? (
-                <Login
-                  setSesionActiva={setSesionActiva}
-                  sesionActiva={sesionActiva}
-                />
-              ) : (
-                <Redirect exact to="/" />
-              )}
-            </Route>
-            <Route exact path="/singin">
+      <SeleccionProvider setSesionActiva={setSesionActiva}>
+        <Switch>
+          <Route exact path="/login">
             {!sesionActiva ? (
-                <Registrarse/>
-              ) : (
-                <Redirect exact to="/" />
-              )}
-            </Route>
-            <Route exact path="/">
-              {!sesionActiva ? (
-                <Redirect exact to="/login" />
-              ) : (
-                <Main setSesionActiva={setSesionActiva} />
-              )}
-            </Route>
-            <Route path="*">
+              <Login
+                setSesionActiva={setSesionActiva}
+                sesionActiva={sesionActiva}
+              />
+            ) : (
+              <Redirect exact to="/" />
+            )}
+          </Route>
+          <Route exact path="/singin">
+            {!sesionActiva ? <Registrarse /> : <Redirect exact to="/" />}
+          </Route>
+          <Route exact path="/">
+            {!sesionActiva ? (
+              <Redirect exact to="/login" />
+            ) : (
+              <Main setSesionActiva={setSesionActiva} />
+            )}
+          </Route>
+          <Route path="*">
             <Redirect exact to="/login" />
-
-            </Route>
-
-          </Switch>
-        </SeleccionProvider>
-     
+          </Route>
+        </Switch>
+      </SeleccionProvider>
     </Router>
   );
 }

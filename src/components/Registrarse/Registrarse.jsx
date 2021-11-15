@@ -1,8 +1,5 @@
 import React from "react";
-import {
-  useHistory,
-  Link,
-} from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import Title from "../Title/Title";
 import Label from "../Label/Label";
 import { ToastContainer, toast } from "react-toastify";

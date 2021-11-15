@@ -37,9 +37,9 @@ const CrearRep = () => {
         config,
         { mode: "no-cors" }
       );
-      let resEnJson = await res.json();
+
       if (res.status === 201) {
-          toast("Repuesto Registrado", {
+        toast("Repuesto Registrado", {
           position: "top-left",
           autoClose: 5000,
           hideProgressBar: false,

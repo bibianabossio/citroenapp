@@ -1,4 +1,4 @@
-import React, { useContext, useState,useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import "./Perfil.css";
 import Title from "../Title/Title";
 import { ToastContainer, toast } from "react-toastify";
@@ -6,44 +6,35 @@ import "react-toastify/dist/ReactToastify.css";
 import BarraNavegacionContexto from "../../context/BarraNavegacionContexto";
 
 const Perfil = () => {
-  const [objeto, setObjeto] = useState([])
-  const { setSeleccion } = useContext(
-    BarraNavegacionContexto
-  );
+  const [objeto, setObjeto] = useState([]);
+  const { handleSeleccion } = useContext(BarraNavegacionContexto);
+  const { setSeleccion } = useContext(BarraNavegacionContexto);
 
-  let datos=localStorage.getItem("sesion")
-  let localStorageEnArray=JSON.parse(datos)
-  useEffect ( async () => {
-      
+  let datos = localStorage.getItem("sesion");
+  let localStorageEnArray = JSON.parse(datos);
+  useEffect(async () => {
     try {
-    let config = {
-      method: "GET",
-      headers: {
-        Authorization: localStorageEnArray.bearer +" " +localStorageEnArray.token,
-        Accept: "application/json",
-        "content-type": "application/json",
-      }
-    };
-    const res = await fetch(
-      `https://concesionario-crud.herokuapp.com/me`,
-       config
-       );
-    const data = await res.json();
-    setObjeto(data);
-   
-      
-    } catch (error) {
-      
-    }
-   
-  },[])
-  
-
+      let config = {
+        method: "GET",
+        headers: {
+          Authorization:
+            localStorageEnArray.bearer + " " + localStorageEnArray.token,
+          Accept: "application/json",
+          "content-type": "application/json",
+        },
+      };
+      const res = await fetch(
+        `https://concesionario-crud.herokuapp.com/me`,
+        config
+      );
+      const data = await res.json();
+      setObjeto(data);
+    } catch (error) {}
+  }, []);
 
   const editarUsuario = async (event) => {
     event.preventDefault();
-    
-  
+
     let resNombreUsuario = event.target.parentElement[0].value;
     let resApellido = event.target.parentElement[1].value
       ? event.target.parentElement[1].value
@@ -59,14 +50,15 @@ const Perfil = () => {
       : event.target.parentElement[4].placeholder;
     let resPassword = event.target.parentElement[5].value
       ? event.target.parentElement[5].value
-      : event.target.parentElement[5].placeholder;  
-      console.log(resNombreUsuario,resApellido,resNombre, resDNI,resEmail);
+      : event.target.parentElement[5].placeholder;
+    console.log(resNombreUsuario, resApellido, resNombre, resDNI, resEmail);
 
-     try {
-          let config = {
+    try {
+      let config = {
         method: "PUT",
         headers: {
-          Authorization: localStorageEnArray.bearer + " " + localStorageEnArray.token,
+          Authorization:
+            localStorageEnArray.bearer + " " + localStorageEnArray.token,
           Accept: "application/json",
           "content-type": "application/json",
         },
@@ -76,7 +68,7 @@ const Perfil = () => {
           nombre: resNombre,
           dni: resDNI,
           email: resEmail,
-         password: resPassword,
+          password: "123456",
         }),
       };
       let res = await fetch(
@@ -84,8 +76,7 @@ const Perfil = () => {
         config
       );
       let resEnJson = await res.json();
-            if (res.status === 200) {
-      
+      if (res.status === 200) {
         toast("Usuario Actualizado", {
           position: "top-left",
           autoClose: 5000,
@@ -111,23 +102,21 @@ const Perfil = () => {
       }
     } catch (error) {
       console.log(" hubo un error ", error);
-    } 
+    }
   };
 
   const eliminarUsuario = async (event) => {
     event.preventDefault();
-    
 
     try {
-       let sesion = JSON.parse(localStorage.getItem("sesion")); 
+      let sesion = JSON.parse(localStorage.getItem("sesion"));
       let config = {
         method: "DELETE",
         headers: {
-          Authorization: sesion.bearer +" " +sesion.token, 
+          Authorization: sesion.bearer + " " + sesion.token,
           Accept: "application/json",
           "content-type": "application/json",
         },
-       
       };
       let res = await fetch(
         `https://concesionario-crud.herokuapp.com/me`,
@@ -135,7 +124,6 @@ const Perfil = () => {
       );
       let resEnJson = res;
       if (res.status === 204) {
-        
         toast("Usuario Eliminado", {
           position: "top-left",
           autoClose: 5000,
@@ -146,7 +134,7 @@ const Perfil = () => {
           progreso: undefined,
         });
         setTimeout(() => {
-          setSeleccion("menu");
+          handleSeleccion(event)
         }, 5000);
       } else {
         toast(resEnJson.message, {
@@ -170,7 +158,7 @@ const Perfil = () => {
         {" "}
         <Title className="title-label" text="Mi Perfil" /> <br />
         <form onSubmit={editarUsuario} id="usuarioModificar">
-          Usuario 
+          Usuario
           <br />
           <input
             className="perfil-style"
@@ -216,28 +204,12 @@ const Perfil = () => {
             placeholder={objeto.email}
           />
           <br />
-          Password
-          <br />
-          <input
-            className="perfil-style"
-            type="text"
-            name="Password"
-            placeholder={objeto.password}
-          /> 
           <br />
           <br />
-          <br />
-          <button
-            
-            onClick={editarUsuario}
-            className="submit-button"
-          >
+          <button onClick={editarUsuario} className="submit-button">
             Editar Usuario
           </button>
-          <button
-            onClick={eliminarUsuario}
-           className="submit-button"
-          >
+          <button onClick={eliminarUsuario} value="cerrar sesión" className="submit-button">
             Eliminar Usuario
           </button>
           <ToastContainer> </ToastContainer>

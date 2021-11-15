@@ -52,7 +52,7 @@ const CrearRep = () => {
           setSeleccion("menu");
         }, 5000);
       } else {
-        if (res.status === 409) {
+        if (res.status === 412) {
           toast(
             "ERROR! Tipo: Parabrisas, Espejo o Radiador. Marca: Citroen o Lael",
             {

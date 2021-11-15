@@ -60,7 +60,7 @@ const EditarAutomovil = () => {
           setSeleccion("menu");
         }, 5000);
       }
-      if (res.status === 409) {
+      if (res.status === 412) {
         toast(resEnJson.message.modelo, {
           position: "top-left",
           autoClose: 5000,

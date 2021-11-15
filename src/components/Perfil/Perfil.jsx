@@ -4,11 +4,13 @@ import Title from "../Title/Title";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import BarraNavegacionContexto from "../../context/BarraNavegacionContexto";
+import { useHistory } from "react-router-dom";
 
 const Perfil = () => {
   const [objeto, setObjeto] = useState([]);
   const { handleSeleccion } = useContext(BarraNavegacionContexto);
   const { setSeleccion } = useContext(BarraNavegacionContexto);
+  let historia=useHistory()
 
   let datos = localStorage.getItem("sesion");
   let localStorageEnArray = JSON.parse(datos);
@@ -108,6 +110,7 @@ const Perfil = () => {
   const eliminarUsuario = async (event) => {
     event.preventDefault();
 
+    
     try {
       let sesion = JSON.parse(localStorage.getItem("sesion"));
       let config = {
@@ -134,8 +137,10 @@ const Perfil = () => {
           progreso: undefined,
         });
         setTimeout(() => {
-          handleSeleccion(event)
-        }, 5000);
+            setSeleccion("menu")
+      
+      handleSeleccion(event)
+        }, 5000); 
       } else {
         toast(resEnJson.message, {
           position: "top-left",
@@ -149,7 +154,7 @@ const Perfil = () => {
       }
     } catch (error) {
       console.log(" hubo un error :( ", error);
-    }
+    } 
   };
 
   return (
@@ -209,7 +214,7 @@ const Perfil = () => {
           <button onClick={editarUsuario} className="submit-button">
             Editar Usuario
           </button>
-          <button onClick={eliminarUsuario} value="cerrar sesión" className="submit-button">
+          <button onClick={eliminarUsuario} value="cerrar sesion" className="submit-button">
             Eliminar Usuario
           </button>
           <ToastContainer> </ToastContainer>
@@ -220,3 +225,4 @@ const Perfil = () => {
 };
 
 export default Perfil;
+

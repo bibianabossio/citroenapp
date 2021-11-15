@@ -1,9 +1,10 @@
 import React, { createContext, useState } from "react";
+import { useHistory } from "react-router-dom";
 
 const BarraNavegacionContexto = createContext();
 const SeleccionProvider = ({ children, setSesionActiva }) => {
   const [seleccion, setSeleccion] = useState("menu");
-
+  let historia=useHistory()
   const [usuarioModificar, setUsuarioModificar] = useState({
     nombreUsuario: null,
     apellido: null,
@@ -34,6 +35,8 @@ const SeleccionProvider = ({ children, setSesionActiva }) => {
     } else {
       setSesionActiva(false);
       localStorage.setItem("activo", false);
+     
+      window.location.reload();
     }
     console.dir(seleccion);
   };
@@ -91,3 +94,4 @@ const SeleccionProvider = ({ children, setSesionActiva }) => {
 export { SeleccionProvider };
 
 export default BarraNavegacionContexto;
+
